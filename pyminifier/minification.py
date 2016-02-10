@@ -63,7 +63,7 @@ def remove_comments(tokens):
                 #tokens[index][1] = '' # Remove trailing newline
         prev_tok_type = token_type
     # Prepend our preserved items back into the token list:
-    if preserved_shebang: # Have to re-tokenize them
+    if preserved_shebang or preserved_encoding: # Have to re-tokenize them
         io_obj = io.StringIO(preserved_shebang + preserved_encoding)
         preserved = [list(a) for a in tokenize.generate_tokens(io_obj.readline)]
         preserved.pop() # Get rid of ENDMARKER
