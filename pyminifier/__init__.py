@@ -309,8 +309,8 @@ def pyminify(options, files):
             "(https://github.com/liftoff/pyminifier)\n")
         # Either save the result to the output file or print it to stdout
         if options.outfile:
-            f = io.open(options.outfile, 'w', encoding='utf-8')
-            f.write(result)
+            f = io.open(options.outfile, 'w')
+            f.write(unicode(result))
             f.close()
             new_filesize = os.path.getsize(options.outfile)
             percent_saved = round(float(new_filesize)/float(filesize) * 100, 2)
