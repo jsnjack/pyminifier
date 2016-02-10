@@ -48,6 +48,13 @@ def main():
         help="Don't bother minifying (only used with --pyz).",
     )
     parser.add_option(
+        "--cleandocs",
+        action="store_true",
+        dest="cleandocs",
+        default=False,
+        help=("Remove comments and docstrings"),
+    )
+    parser.add_option(
         "--use-tabs",
         action="store_true",
         dest="tabs",

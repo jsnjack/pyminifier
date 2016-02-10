@@ -284,6 +284,9 @@ def pyminify(options, files):
             source = minification.minify(tokens, options)
             # Convert back to tokens in case we're obfuscating
             tokens = token_utils.listified_tokenizer(source)
+        if options.cleandocs:
+            source = minification.cleandocs(tokens, options)
+            tokens = token_utils.listified_tokenizer(source)
         # Perform obfuscation if any of the related options were set
         if options.obfuscate or options.obf_classes or options.obf_functions \
                 or options.obf_variables or options.obf_builtins \

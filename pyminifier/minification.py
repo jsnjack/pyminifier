@@ -414,6 +414,17 @@ def minify(tokens, options):
     result = join_multiline_pairs(result, '[]')
     result = join_multiline_pairs(result, '{}')
     result = remove_blank_lines(result)
-    # result = reduce_operators(result)
+    result = reduce_operators(result)
     result = dedent(result, use_tabs=options.tabs)
+    return result
+
+def cleandocs(tokens, options):
+    """
+    Removes docstrings and comments from the code
+    """
+    # Remove comments
+    remove_comments(tokens)
+    # Remove docstrings
+    remove_docstrings(tokens)
+    result = token_utils.untokenize(tokens)
     return result
