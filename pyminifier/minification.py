@@ -414,6 +414,6 @@ def minify(tokens, options):
     result = join_multiline_pairs(result, '[]')
     result = join_multiline_pairs(result, '{}')
     result = remove_blank_lines(result)
-    result = reduce_operators(result)
+    # result = reduce_operators(result)
     result = dedent(result, use_tabs=options.tabs)
     return result
