@@ -307,7 +307,7 @@ def pyminify(options, files):
         # Either save the result to the output file or print it to stdout
         if options.outfile:
             f = io.open(options.outfile, 'w')
-            f.write(unicode(result))
+            f.write(unicode(result.decode("utf-8")))
             f.close()
             new_filesize = os.path.getsize(options.outfile)
             try:
